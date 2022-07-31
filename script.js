@@ -1,65 +1,48 @@
 // Место для первой задачи
 function firstTask() {
-    for (let i = 5; i <= 10; i++) {
+    // Значения массива менять нельзя, тут он проверяется автоматически именно на эти значения
+    const arr = [3, 5, 8, 16, 20, 23, 50];
+    const result = [];
+
+    // Пишем решение вот тут
+       for (let i = 0; i < arr.length; i++) {
+        result[i] = arr[i];
+        
+    }
     
-         console.log(i);
-     }
- }
+    // Не трогаем
+    return result;
+}
 
 // Место для второй задачи
 function secondTask() {
-    for (let i = 20; i >= 10; i--) {
-     if (i===13) {
-        break;
-     }
-          console.log(i);
-      }
-  }
+    // Значения массива менять нельзя, тут он проверяется автоматически именно на эти значения
+    const data = [5, 10, 'Shopping', 20, 'Homework'];
 
-// Место для третьей задачи
-function thirdTask() {
-    for (let i = 2; i <= 10; i++) {
-        if(i%2) {
-            continue}
-     
-          console.log(i);
-      }
-  }
-
-// Место для четвертой задачи
-
-
-// Цикл, который нужно переписать:
-
-// for (let i = 2; i <= 16; i++) {
-//     if (i % 2 === 0) {
-//         continue;
-//     } else {
-//         console.log(i);
-//     }
-// }
-
-function fourthTask() {
-     let i=2;
-    while(i<=16) {
-        if(i%2 ===1) {
-            console.log(i);
-        }
-        i++;
-    }
-}
-
-// Место для пятой задачи
-
-function fifthTask() {
-    const arrayOfNumbers = [];
- for (let i = 0; i < 6; i++) {
-   arrayOfNumbers[i]=i+5;
-    
-  }
     // Пишем решение вот тут
+    for (let i = 0; i < data.length; i++) {
+        if (typeof(data[i])==='number') {
+            data[i]=data[i]*2;continue;
+        }
+        data[i]=data[i]+" - done";
+        
+    }
     
     
     // Не трогаем
-    return arrayOfNumbers;
+    return data;
+}
+
+// Место для третьей задачи
+function thirdTask() {
+    // Значения массива менять нельзя, тут он проверяется автоматически именно на эти значения
+    const data = [5, 10, 'Shopping', 20, 'Homework'];
+    const result = [];
+
+    // Пишем решение вот тут
+      for (let i = data.length-1; i >= 0; i--) {
+        result[data.length-1-i] = data[i];
+    } 
+    // Не трогаем
+    return result;
 }
