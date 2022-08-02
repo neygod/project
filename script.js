@@ -1,83 +1,71 @@
-/* Задание на урок:
-
-1) Автоматизировать вопросы пользователю 
-про фильмы при помощи цикла
-
-2) Сделать так, чтобы пользователь не мог оставить ответ в виде пустой строки,
-отменить ответ или ввести название фильма длинее, чем 50 символов. Если это происходит - 
-возвращаем пользователя к вопросам опять
-
-3) При помощи условий проверить  personalMovieDB.count, и если он меньше 10 - вывести сообщение
-"Просмотрено довольно мало фильмов", если от 10 до 30 - "Вы классический зритель", а если больше - 
-"Вы киноман". А если не подошло ни к одному варианту - "Произошла ошибка"
-
-4) Потренироваться и переписать цикл еще двумя способами*/
 
 'use strict';
+// const usdCur = 285;
+// const discoount = 0.9;
 
-// Код возьмите из предыдущего домашнего задания
-const numderOFilms = +prompt('Сколько фильмов вы уже посмотрели?','');
-const personalMovieDB = {
-    count:numderOFilms,
-    movies:{},
-    actors:{},
-    genres:[],
-    privat:false,
-};
+// function convert (amount,curr) {
+//     return curr*amount;
 
 
-
-// for (let i=0; i < 2; i++) {
-//     const a = prompt('Один из последних просмотренных фильмов?', ''),
-//           b = prompt('На сколько оцените его?', '');
-//           if (a !=null && b !=null && a !='' && b !='' && a.length<50) {
-//             personalMovieDB.movies[a] = b;
-//             console.log ('done');
-//           } else {
-//             console.log ('error');i--;
-//           }
-// }
-// let index = 0;
-// while (index<2) {
-//     const a = prompt('Один из последних просмотренных фильмов?', ''),
-//           b = prompt('На сколько оцените его?', '');
-//           index++;
-//           if (a !=null && b !=null && a !='' && b !='' && a.length<50) {
-//             personalMovieDB.movies[a] = b;
-//             console.log ('done');
-//           } else {
-//             console.log ('error');index--;
-//           }
-
-// }
-let index1 = 0;
-do {
-    const a = prompt('Один из последних просмотренных фильмов?', ''),
-          b = prompt('На сколько оцените его?', '');
-          index1++;
-          if (a !=null && b !=null && a !='' && b !='' && a.length<50) {
-            personalMovieDB.movies[a] = b;
-            console.log ('done');
-          } else {
-            console.log ('error');index1--;
-          }
-        }
-        while (index1<2);
    
+// }
+// function promotion (resukl) {
+//     console.log(resukl*discoount)
+// }
+// promotion(convert(500,usdCur))
+// console.log(convert(500,usdCur))
 
 
+// function test (){
+//     for (let i=1; i<100; i++){
+//         console.log (i);
+//         if (i === 3) return
+//     }
+//     console.log('djoe')
+// }
+// test ()
+
+// function doNothing (){};
+// console.log(doNothing ()===undefined)
+
+// 1) Создайте функцию, которая будет на вход принимать 1 аргумент с именем человека и возвращать строку.
+
+// Пример: вызов функции sayHello('Антон') возвращает строку "Привет, Антон!". В решении вызывать функцию не нужно, программа сделает это за вас.
+
+// P.S. возвращать - это использовать ключевое слово return.
+
+// P.S.S. Это классическая функция-модификатор, которых мы дальше по курсу будем создавать еще много в разных видах.
 
 
+// Место для первой задачи
+function sayHello(a) {
+    return '"Привет, '+ a + '!"';
+
+}
+console.log(sayHello('Антон'));
 
 
-if (personalMovieDB.count < 10 ) {
-    console.log ('Просмотрено довольно мало фильмов');
-    } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
-        console.log ('Вы классический зритель'); 
-     } else if (personalMovieDB.count >= 30) {
-        console.log ('Вы киноман'); 
-     } else {
-        console.log ('Произошла ошибка');
-     }
+// Место для второй задачи
+function returnNeighboringNumbers(a) {
+    return [a-1,a,a+1];
+    
+}
+console.log(returnNeighboringNumbers(6))
 
-console.log(personalMovieDB);
+
+// Место для третьей задачи
+function getMathResult(a,b) {
+    let result=a; if (typeof(b)==='number'
+ && b>0) {
+    for (let i = 2; i <= b; i++) {
+        result=result+'---'+a*i;
+            }
+} else { return a;
+
+}
+  
+
+    return result;
+
+}
+console.log(getMathResult(y,4));
