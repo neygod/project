@@ -1,65 +1,83 @@
-// Место для первой задачи
-function firstTask() {
-    for (let i = 5; i <= 10; i++) {
-    
-         console.log(i);
-     }
- }
+/* Задание на урок:
 
-// Место для второй задачи
-function secondTask() {
-    for (let i = 20; i >= 10; i--) {
-     if (i===13) {
-        break;
-     }
-          console.log(i);
-      }
-  }
+1) Автоматизировать вопросы пользователю 
+про фильмы при помощи цикла
 
-// Место для третьей задачи
-function thirdTask() {
-    for (let i = 2; i <= 10; i++) {
-        if(i%2) {
-            continue}
-     
-          console.log(i);
-      }
-  }
+2) Сделать так, чтобы пользователь не мог оставить ответ в виде пустой строки,
+отменить ответ или ввести название фильма длинее, чем 50 символов. Если это происходит - 
+возвращаем пользователя к вопросам опять
 
-// Место для четвертой задачи
+3) При помощи условий проверить  personalMovieDB.count, и если он меньше 10 - вывести сообщение
+"Просмотрено довольно мало фильмов", если от 10 до 30 - "Вы классический зритель", а если больше - 
+"Вы киноман". А если не подошло ни к одному варианту - "Произошла ошибка"
+
+4) Потренироваться и переписать цикл еще двумя способами*/
+
+'use strict';
+
+// Код возьмите из предыдущего домашнего задания
+const numderOFilms = +prompt('Сколько фильмов вы уже посмотрели?','');
+const personalMovieDB = {
+    count:numderOFilms,
+    movies:{},
+    actors:{},
+    genres:[],
+    privat:false,
+};
 
 
-// Цикл, который нужно переписать:
 
-// for (let i = 2; i <= 16; i++) {
-//     if (i % 2 === 0) {
-//         continue;
-//     } else {
-//         console.log(i);
-//     }
+// for (let i=0; i < 2; i++) {
+//     const a = prompt('Один из последних просмотренных фильмов?', ''),
+//           b = prompt('На сколько оцените его?', '');
+//           if (a !=null && b !=null && a !='' && b !='' && a.length<50) {
+//             personalMovieDB.movies[a] = b;
+//             console.log ('done');
+//           } else {
+//             console.log ('error');i--;
+//           }
 // }
+// let index = 0;
+// while (index<2) {
+//     const a = prompt('Один из последних просмотренных фильмов?', ''),
+//           b = prompt('На сколько оцените его?', '');
+//           index++;
+//           if (a !=null && b !=null && a !='' && b !='' && a.length<50) {
+//             personalMovieDB.movies[a] = b;
+//             console.log ('done');
+//           } else {
+//             console.log ('error');index--;
+//           }
 
-function fourthTask() {
-     let i=2;
-    while(i<=16) {
-        if(i%2 ===1) {
-            console.log(i);
+// }
+let index1 = 0;
+do {
+    const a = prompt('Один из последних просмотренных фильмов?', ''),
+          b = prompt('На сколько оцените его?', '');
+          index1++;
+          if (a !=null && b !=null && a !='' && b !='' && a.length<50) {
+            personalMovieDB.movies[a] = b;
+            console.log ('done');
+          } else {
+            console.log ('error');index1--;
+          }
         }
-        i++;
-    }
-}
+        while (index1<2);
+   
 
-// Место для пятой задачи
 
-function fifthTask() {
-    const arrayOfNumbers = [];
- for (let i = 0; i < 6; i++) {
-   arrayOfNumbers[i]=i+5;
-    
-  }
-    // Пишем решение вот тут
-    
-    
-    // Не трогаем
-    return arrayOfNumbers;
-}
+
+
+
+
+if (personalMovieDB.count < 10 ) {
+    console.log ('Просмотрено довольно мало фильмов');
+    } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+        console.log ('Вы классический зритель'); 
+     } else if (personalMovieDB.count >= 30) {
+        console.log ('Вы киноман'); 
+     } else {
+        console.log ('Произошла ошибка');
+     }
+
+console.log(personalMovieDB);
