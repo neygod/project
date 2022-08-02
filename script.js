@@ -1,71 +1,69 @@
 
 'use strict';
-// const usdCur = 285;
-// const discoount = 0.9;
-
-// function convert (amount,curr) {
-//     return curr*amount;
 
 
-   
-// }
-// function promotion (resukl) {
-//     console.log(resukl*discoount)
-// }
-// promotion(convert(500,usdCur))
-// console.log(convert(500,usdCur))
+let numderOFilms;
+ function start () {
+
+    numderOFilms = +prompt('Сколько фильмов вы уже посмотрели?','');
+    while (numderOFilms=='' || numderOFilms== null || isNaN(numderOFilms)) {
+        numderOFilms = +prompt('Сколько фильмов вы уже посмотрели?','');
+ }
+}
+start();
 
 
-// function test (){
-//     for (let i=1; i<100; i++){
-//         console.log (i);
-//         if (i === 3) return
-//     }
-//     console.log('djoe')
-// }
-// test ()
+const personalMovieDB = {
+    count:numderOFilms,
+    movies:{},
+    actors:{},
+    genres:[],
+    privat:false,
+};
 
-// function doNothing (){};
-// console.log(doNothing ()===undefined)
-
-// 1) Создайте функцию, которая будет на вход принимать 1 аргумент с именем человека и возвращать строку.
-
-// Пример: вызов функции sayHello('Антон') возвращает строку "Привет, Антон!". В решении вызывать функцию не нужно, программа сделает это за вас.
-
-// P.S. возвращать - это использовать ключевое слово return.
-
-// P.S.S. Это классическая функция-модификатор, которых мы дальше по курсу будем создавать еще много в разных видах.
-
-
-// Место для первой задачи
-function sayHello(a) {
-    return '"Привет, '+ a + '!"';
+function rememderMyFilms () {
+    for (let i=0; i < 2; i++) {
+        const a = prompt('Один из последних просмотренных фильмов?', ''),
+              b = prompt('На сколько оцените его?', '');
+              if (a !=null && b !=null && a !='' && b !='' && a.length<50) {
+                personalMovieDB.movies[a] = b;
+                console.log ('done');
+              } else {
+                console.log ('error');i--;
+              }
+    }
 
 }
-console.log(sayHello('Антон'));
+rememderMyFilms ();
 
 
-// Место для второй задачи
-function returnNeighboringNumbers(a) {
-    return [a-1,a,a+1];
+
+     function detectPersonalLevel () {
+        if (personalMovieDB.count < 10 ) {
+            console.log ('Просмотрено довольно мало фильмов');
+            } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+                console.log ('Вы классический зритель'); 
+             } else if (personalMovieDB.count >= 30) {
+                console.log ('Вы киноман'); 
+             } else {
+                console.log ('Произошла ошибка');
+             }
+
+     }
+     detectPersonalLevel ()
+
+     function showMyDB () {
+if (personalMovieDB.privat===false) {
+    console.log(personalMovieDB); 
+     }
+    }
+    showMyDB ();
+    function writeYourGenres () {
+        for (let i=0; i <= 2; i++) {
+            const a = prompt(`Ваш любимый жанр под номером ${i+1}?`, '');
+                    personalMovieDB.genres[i] = a;
+                                     }
+        }
+        writeYourGenres () ;
+
     
-}
-console.log(returnNeighboringNumbers(6))
-
-
-// Место для третьей задачи
-function getMathResult(a,b) {
-    let result=a; if (typeof(b)==='number'
- && b>0) {
-    for (let i = 2; i <= b; i++) {
-        result=result+'---'+a*i;
-            }
-} else { return a;
-
-}
-  
-
-    return result;
-
-}
-console.log(getMathResult(y,4));
