@@ -1,58 +1,97 @@
-// function first() {
-   
-//     setTimeout(function() {
-//         console.log(1);
-//     }, 500);
-//     function second () {
-//         console.log(2);
 
+// function showExperience(plan) {
+     
+//     for( let key in plan) {
+//         if (key==='exp') { 
+//              return plan[key];
+//         }
+//         if (typeof(plan[key])==="object") {
+//             for( let i in plan[key]) {
+//                 if (i==='exp') { 
+//                       return plan[key][i];
+//                 }
+
+//         }
 //     }
-    
 // }
-// first();
-// second();
+// }
 
+// function showProgrammingLangs(plan) {
+//     let langs= '', answer= '';
+    
+//     for( let key in plan) {
+//      if (key==="programmingLangs") {
+//           langs = plan[key];
+//      }
+//      if (typeof(plan[key])==='object')  {
+//          for (let key2 in plan[key]) {
+//              if (key2==="programmingLangs") {
+//                  langs =plan[key][key2];
+//              }
+//              if (typeof(plan[key][key2])==='object') {
+//                  for (let key3 in plan[key][key2]) {
+//                      if (key3==="programmingLangs") {
+//                          langs =plan[key][key2][key3];
+//                      }
+//                  }
+//              }
 
-// function LearnJS(lang, callback) {
-//   console.log (`я учу: ${lang}`);
-//   callback();
-//   }
-//   function done() {
-//     console.log ('я прошел этот урок');
-//   }
-//   LearnJS('JS', done);
+//          }
+         
+ 
+//  }
+ 
+// }
 
+// for( let key4 in langs) {
+//  answer=answer+`Язык ${key4} изучен на ${langs[key4]}`;
+//  answer=answer+'\n';
+// }
+// return answer; 
+// }
+//  showExperience(personalPlanPeter)
+//  showProgrammingLangs(personalPlanPeter);
 
-//const obj = new Object();
-'use strict'
-const options = {
-    name: 'test',
-    width: 1024,
-    hight: 1024,
-    colors: {
-        border: 'black',
-        bg: 'red'
-    },
-    makeTest: function () {
-        console.log ('test');
+ 'use strict'
+ const personalPlanPeter = {
+     name: "Peter",
+     age: "29",
+     skills: {
+         languages: ['ru', 'eng'],
+         programmingLangs: {
+             js: '20%',
+             php: '10%'
+         },
+         exp: '1 month'
+     },
+     showAgeAndLangs: function (plan) {
+        let answer='';
+        for( let key in plan) {
+            if (key==="age") {
+             answer = answer+`Мне ${plan[key]} и я владею языками:`;
+                         }
+        }
+        for( let key1 in plan) {
+            if ( typeof(plan[key1])==="object") {
+                for( let key2 in plan[key1]) {
+                     if (key2==="languages") {
+                        for (let key3 in plan[key1][key2]) {
+                  answer = answer+`${plan[key1][key2][key3]} `.toUpperCase();
+                        }
+               
+                
+                
+             
+            }
+        }
+      
+        
+        
     }
-    
-};
-options.makeTest();
-const {border, bg} = options.colors;
+ 
+ }
+ console.log(answer);
+}
+ }
+ personalPlanPeter.showAgeAndLangs(personalPlanPeter);
 
-console.log(Object.keys(options).length);
-// let counter =0;
-// for(let key in options) {
-//     if (typeof (options[key])==='object') {
-//         for (let i in options[key] ) {
-//             console.log(`Свойсвто ${i} имееет знание ${options[key][i]}`);
-//             counter++;
-//     } 
-// } else {
-    
-//     console.log(`Свойсвто ${key} имееет знание ${options[key]}`);
-//     counter++;
-// }
-// }
-// console.log(counter)
