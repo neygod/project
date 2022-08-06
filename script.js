@@ -1,32 +1,26 @@
-// const family = ['Peter', 'Ann', 'Alex', 'Linda'];
-// console.log(family.length);
-// function showFamily(arr) {
-//      let familyText =''; 
-//      let familyBul = false;
-//     arr.forEach(element => {familyText = familyText+' '+element;
-//      familyBul=true;
-     
-//     });
-//     if (familyBul===false) {return'Семья пуста'}
-//     else {
-//     return 'Семья состоит из:'+familyText;    
-//     }
-    
+
+// const someString = 'This is some strange string';
+
+// function reverse(str) {
+// if (typeof(str)!=="string") {
+//     return "Ошибка!"
+// } else {
+//     return str.split("").reverse().join("");
+//   }
 // }
-// showFamily(family);
+// reverse(someString)
 
+const baseCurrencies = ['USD', 'EUR'];
+const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+function availableCurr(arr, missingCurr) {
+    let str = '';
+    arr.length === 0 ? str = 'Нет доступных валют' : str = 'Доступные валюты:\n';
 
-
-
-const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
-
-
-function standardizeStrings(arr) {
-    let cityText='';
-     arr.forEach(element => {cityText = cityText+element+'\n';
-                });
-        console.log(cityText=cityText.toLocaleLowerCase(), typeof(cityText));
-     
- }
-
-    standardizeStrings(favoriteCities); 
+    arr.forEach(function(curr, i) {
+        if (curr !== missingCurr) {
+            str += `${curr}\n`;
+        }
+    });
+    return str;
+}
+availableCurr([...baseCurrencies, ...additionalCurrencies], 'CNY')
