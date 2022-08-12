@@ -1,60 +1,63 @@
 'use strict';
+// function pow (x,n) {
+//     let result = 1;
+//     for (let i=0; i<n; i++) {
+//         result*=x;
 
-const restorantData = {
-    menu: [
-        {
-            name: 'Salad Caesar',
-            price: '14$'
-        },
-        {
-            name: 'Pizza Diavola',
-            price: '9$'
-        },
-        {
-            name: 'Beefsteak',
-            price: '17$'
-        },
-        {
-            name: 'Napoleon',
-            price: '7$'
-        }
-    ],
-    waitors: [
-        {name: 'Alice', age: 22}, {name: 'John', age: 24}
-    ],
-    averageLunchPrice: '20$',
-    openNow: true
-};
+//     }
+//     return result;
+// }
 
-function isOpen(prop) {
-    let answer = '';
-    prop ? answer = 'Открыто' : answer = 'Закрыто';
+// function pow (x,n) {
+//     if (n===1) {
+//         return x;
+//     } else {
+//         return x*pow(x, n-1);
+//     }
+//     }
+//     return result;
+// }
 
-    return answer;
+
+function getTotalProgressIteration(data) {
+    let total = 0;
+    let student = 0;
+for (let  course of Object.values) {
+    if (Array.isArray(course)) {
+student += course.length;
+for (i=0;i<course.length; i++) {
+    total=+course[i].progress;
 }
-
-console.log(isOpen(restorantData.openNow))
-
-function isAverageLunchPriceTrue(fDish, sDish, average) {
-
-   
-    
-    if (+fDish.price.slice(0, -1) + (+sDish.price.slice(0, -1)) < +average.slice(0, -1)) {
-        return 'Цена ниже средней';
     } else {
-        return 'Цена выше средней';
+        for (let subcourse of Object.values(course)) {
+            student += subcourse.length;
+            total=+subcourse[i].progress;
+}
     }
-    
+ 
+}
+    return total/student;
 }
 
-console.log(isAverageLunchPriceTrue(restorantData.menu[0], restorantData.menu[1], restorantData.averageLunchPrice));
+function getTotalProgressByRecursion(data) {
+    if (Array.isArray(data)) {
+       let total = 0;
 
-
-function transferWaitors(data) {
-    const copy = JSON.parse(JSON.stringify(data));
-
-    copy.waitors[0] = {name: 'Mike', age: 32};
-    return copy;
+        for (i=0;i<data.length; i++) {
+            total=+data[i].progress;
+        }
+        return [total, data.length]
+            } else {
+let total = [0, 0];
+for (let subData of Object.values(data)) {
+    const subDataArr = getTotalProgressByRecursion(subData);
+    total[0] +=subDataArr[0];
+    total[1] =+subDataArr[1];
 }
+return total;
+            }
 
-transferWaitors(restorantData);
+
+}
+const result  = getTotalProgressByRecursion(student);
+console.log (result[0]/result[1]);
