@@ -1,26 +1,28 @@
 'use strict';
-function amountOfPages(summary) {
- let summArr = [],
-     k = 0;
-for (let i = 1; i <= summary; i++) {
-    for (let j = 0; j <String(i).length; j++) {
-        summArr.push(Number(String(i)[j]));
-        k=j+1;
-        
+function isPangram(string) {
+let strAlfavit = 'abcdefghijklmnopqrstuvwxyz',
+    k=0;
+    string = string.split(' ').join('').toLowerCase();
+for (const letters of string) {
+    for (const letters1 of strAlfavit) {
+    if (letters1===letters) {
+        k+=1;
+        if (k===26) {
+            return true;
+        }
     }
-    if (summArr.length==summary) {
-        break;
+
     }
-  
+
+}
+return false;
 }
 
-return Number((summArr.slice(summArr.length-k)).join(''));
-}
-amountOfPages(1095);
 
 
 
 
+isPangram('The qus over the lazy dog');
 
 
 
