@@ -1,9 +1,26 @@
 'use strict';
-function deepCount(a){
-    let count = a.length;
-    for (let i=0; i<a.length; i++) if (Array.isArray(a[i])) count += deepCount(a[i]);
-    return count;
-}
+const btn = document.querySelector('.btn');
 
-deepCount([1, 2, [3, 4, [5]]]);
+
+
+function myAnimation() {
+    const elem = document.querySelector('.box');
+    let pos = 0;
+
+    const id = setInterval(frame, 10);
+    function frame() {
+        if (pos == 300) {
+            clearInterval(id);
+
+        } else {
+            pos++;
+            elem.style.top = pos + "px";
+            elem.style.left = pos + 'px';
+        }
+    }
+}
+btn.addEventListener('click', myAnimation);
+
+
+
 
