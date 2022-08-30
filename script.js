@@ -1,26 +1,21 @@
 'use strict';
-const btn = document.querySelector('.btn');
+const box = document.querySelector('.box'),
+btn = document.querySelector('button');
+
+const width = box.scrollWidth;
+const height = box.scrollHeight; 
+console.log(width, height);
 
 
-
-function myAnimation() {
-    const elem = document.querySelector('.box');
-    let pos = 0;
-
-    const id = setInterval(frame, 10);
-    function frame() {
-        if (pos == 300) {
-            clearInterval(id);
-
-        } else {
-            pos++;
-            elem.style.top = pos + "px";
-            elem.style.left = pos + 'px';
-        }
-    }
-}
-btn.addEventListener('click', myAnimation);
+btn.addEventListener('click', ()=> {
+// box.style.height = box.scrollHeight  + 'px';
+console.log(box.scrollTop);
+});
 
 
+console.log(box.getBoundingClientRect().top);
 
+const style = window.getComputedStyle(box);
+console.log(style.display);
 
+console.log(document.documentElement.scrollTop)
